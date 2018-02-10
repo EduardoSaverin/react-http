@@ -1,3 +1,5 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0e64b410e74f406581e5e60d23d7d420)](https://www.codacy.com/app/EduardoSaverin/react-http?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=EduardoSaverin/react-http&amp;utm_campaign=Badge_Grade)
+
 # POST APP - REACT HTTP LEARNINGS
 ## Table of Contents
 
