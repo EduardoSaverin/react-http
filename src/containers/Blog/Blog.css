@@ -1,7 +1,21 @@
-.Posts {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    width: 80%;
-    margin: auto;
+
+
+.links ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+}
+.links ul li{
+    margin: 20px;
+    display: inline-block;
+}
+.links li a{
+    text-decoration: none;
+    color: #000;
+}
+.links li a:hover,.links li a:active,.links li a.active{
+    color: #FA0;
+    border-bottom: 2px solid #000;
 }

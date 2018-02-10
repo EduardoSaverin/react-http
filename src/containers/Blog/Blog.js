@@ -1,50 +1,39 @@
 import React, { Component } from 'react';
 //import axios from 'axios';
-import axios from '../../axios';
-import Post from '../../components/Post/Post';
-import FullPost from '../../components/FullPost/FullPost';
-import NewPost from '../../components/NewPost/NewPost';
 import './Blog.css';
+import Posts from '../../components/Posts/Posts';
+import NewPost from '../../components/NewPost/NewPost';
+import {Route,NavLink,Switch, Redirect} from 'react-router-dom';
+import FullPost from '../../components/FullPost/FullPost';
 
 class Blog extends Component {
-    state = {
-        posts: [],
-        selectedPost: null
-    }
-    // Do data fetch in this method only.
-    componentDidMount(){
-        axios.get('/posts').then(
-            (response) => {
-                this.setState({
-                    posts: response.data
-                });
-            }
-        );
-    }
-    postSelection = (id) => {
-        this.setState({
-            selectedPost: id
-        });
-        console.log(this.state.selectedPost);
-    }
-
     render () {
-        const posts = this.state.posts.slice(0,4).map((post) => {
-            return <Post key={post.id} title={post.title}
-            click={() => this.postSelection(post.id)}
-            />
-        });
         return (
             <div>
-                <section className="Posts">
-                    {posts}
-                </section>
-                <section>
-                    <FullPost id={this.state.selectedPost}/>
-                </section>
-                <section>
-                    <NewPost />
-                </section>
+                <header>
+                    <nav className="links">
+                        <ul>
+                            <li><NavLink to="/posts" exact>Home</NavLink></li>
+                            <li><NavLink to="/newPost" exact>New Post</NavLink></li>
+                        </ul>
+                    </nav>
+                </header>
+                {/* {Swicth matches the first route and then stops analyzing} */}
+                <Switch>
+                    <Route path="/newPost" exact component={NewPost}/>
+                    <Route path="/fullPost/:id" exact component={FullPost}/>
+                    <Route path="/posts" exact component={Posts} />
+                    <Route render={() => <h1 style={{'textAlign':'center'}}>Not Found</h1>}/>
+                    {/* <Redirect from="/" to="/posts"/> */}
+                </Switch>
+                 {
+                    /**
+                     * 
+                        <section>
+                            <NewPost />
+                        </section>
+                     */
+                 }
             </div>
         );
     }

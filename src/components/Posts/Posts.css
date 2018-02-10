@@ -1,0 +1,13 @@
+.Posts {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 90%;
+    margin: auto;
+    color: #000 !important;
+    text-decoration: none;
+}
+.Posts a{
+    color: #000 !important;
+    text-decoration: none;
+}
